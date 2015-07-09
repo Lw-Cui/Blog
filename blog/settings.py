@@ -1,6 +1,6 @@
 # Django settings for blog project.
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -9,8 +9,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-import os
-if 'SERVER_SOFTWARE' in os.environ:
+if DEBUG == False:
     MYSQL_HOST = 'w.rdc.sae.sina.com.cn'
     MYSQL_PORT = '3307'
     MYSQL_USER = '02234woj2m'
