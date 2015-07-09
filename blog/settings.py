@@ -16,9 +16,6 @@ if DEBUG == False:
     MYSQL_PASS = 'iiyjy1iklmjz0l2k41xwmymzw20z54kh3i3mmjmh'
     MYSQL_DB   = 'app_hellolw'
 
-    from sae._restful_mysql import monkey
-    monkey.patch()
-
     DATABASES = {
         'default': {
             'ENGINE':   'django.db.backends.mysql',

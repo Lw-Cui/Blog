@@ -1,4 +1,5 @@
 import sae
+import sys 
 import os 
 from blog import wsgi
 
@@ -8,7 +9,5 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'blog.settings'
 
 application = sae.create_wsgi_app(wsgi.application)
 
-import sys 
 import django.core.handlers.wsgi 
-
 application = sae.create_wsgi_app(django.core.handlers.wsgi.WSGIHandler()) 
