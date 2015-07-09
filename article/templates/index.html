@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block description %}Lw Cui, @UESTC, China. A computer secience student.{%endblock%}
+{% block title %}Hello Lw{% endblock %}
+{% load staticfiles %}
+
+{% block head %}
+<header class="main-header" style="background-image: url({% static 'img/home.JPG' %})">
+
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">{{ greet }}</h1>
+
+            <h2 class="page-description">please Stay hungry, stay foolish.</h2>
+        </div>
+    </div>
+    <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
+</header>
+{% endblock %}
+
+
+
+{% block body %}
+<main id="content" class="content" role="main">
+    {% for blog in blogs %}
+
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="{{blog.get_absolute_url}}">{{blog.title}}</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p><a class="read-more" href="{{blog.get_absolute_url}}">{{blog.snippet}} &raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            {{blog.author.username}}
+            <time class="post-date" datetime='{{blog.add_time|date:"b d, Y"}}'>{{blog.add_time|date:"b d, Y"}}</time>
+        </footer>
+    </article>
+
+    {% endfor %}
+
+</main>
+
+{% endblock %}
