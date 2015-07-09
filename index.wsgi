@@ -8,7 +8,7 @@ import sys
 import django.core.handlers.wsgi 
 
 app_root = os.path.dirname(__file__) 
-sys.path.insert(0, os.path.join(app_root, 'yhjx')) 
+sys.path.insert(0, os.path.join(app_root, 'blog')) 
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'blog.settings' 
 
