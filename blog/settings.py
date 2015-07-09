@@ -13,7 +13,7 @@ MYSQL_HOST = 'w.rdc.sae.sina.com.cn'
 MYSQL_PORT = '3307'
 MYSQL_USER = 'bloguser'
 MYSQL_PASS = '123'
-MYSQL_DB   = 'blogdb'
+MYSQL_DB   = 'hellolw'
 
 from sae._restful_mysql import monkey
 monkey.patch()
