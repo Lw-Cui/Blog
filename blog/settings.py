@@ -11,9 +11,9 @@ MANAGERS = ADMINS
 
 MYSQL_HOST = 'w.rdc.sae.sina.com.cn'
 MYSQL_PORT = '3307'
-MYSQL_USER = 'ACCESSKEY'
-MYSQL_PASS = 'SECRETKEY'
-MYSQL_DB   = 'app_APP_NAME'
+MYSQL_USER = 'bloguser'
+MYSQL_PASS = '123'
+MYSQL_DB   = 'blogdb'
 
 from sae._restful_mysql import monkey
 monkey.patch()
