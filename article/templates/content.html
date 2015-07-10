@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block description %}{{blog.snippet }}{%endblock%}
+{% block description %}{{ blog.snippet }}{%endblock%}
 {% block title %}{{blog.title}}{% endblock %}
 {% load staticfiles %}
 
@@ -27,11 +27,11 @@
         </header>
 
         <section class="post-content">
-           {{blog.content}}
+           {{blog.content  }}
+           {% include "comment.html" %}
         </section>
 
     </article>
-
 
 </main>
 {% endblock %}

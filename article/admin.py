@@ -6,6 +6,6 @@ class articleAdmin(admin.ModelAdmin):
 	list_display = ('title', 'publishTime',)
 	list_filter = ('publishTime',)
 	date_hierarchy = 'publishTime'
-	ordering = ('-publishTime',)
+	ordering = ('publishTime',)
 
 admin.site.register(article, articleAdmin)
