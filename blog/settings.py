@@ -1,7 +1,6 @@
 # Django settings for blog project.
+import os
 
-DEBUG = False
-TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -9,7 +8,8 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-if DEBUG == False:
+if 'SERVER_SOFTWARE' in os.environ:
+    DEBUG = False
     MYSQL_HOST = 'w.rdc.sae.sina.com.cn'
     MYSQL_PORT = '3307'
     MYSQL_USER = '02234woj2m'
@@ -27,6 +27,7 @@ if DEBUG == False:
         }
     }
 else:
+    DEBUG = True
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
@@ -38,6 +39,7 @@ else:
         }
     }
 
+TEMPLATE_DEBUG = DEBUG
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -137,7 +139,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
-    'bootstrap_admin',
+    #'django_forms_bootstrap',
+    #'bootstrap_admin',
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
