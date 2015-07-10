@@ -25,10 +25,10 @@
 
     <article class="post">
         <header class="post-header">
-            <h2 class="post-title"><a href="{{blog.get_absolute_url}}">{{blog.title}}</a></h2>
+            <h2 class="post-title"><a href="{{blog.geturl}}">{{blog.title}}</a></h2>
         </header>
         <section class="post-excerpt">
-            <p><a class="read-more" href="{{blog.get_absolute_url}}">{{blog.snippet}} &raquo;</a></p>
+            <p><a class="read-more" href="{{blog.geturl}}">{{blog.snippet}} &raquo;</a></p>
         </section>
         <footer class="post-meta">
             {{blog.author.username}}

@@ -18,3 +18,6 @@ def home(request):
 	return render_to_response('index.html', 
 		{'blogs': article.objects.all(), 'greet': greet})
 
+def content(request, blogID):
+    return render_to_response('content.html', 
+    	{'blog': article.objects.get(id=blogID)})

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block description %}{{blog.snippet }}{%endblock%}
+{% block title %}{{blog.title}}{% endblock %}
+{% load staticfiles %}
+
+{% block assert %}
+ <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+{% endblock %}
+
+{% block head %}
+<header class="main-header post-head" style="background-image: url({% static 'img/home.JPG' %})">
+</header>
+{% endblock %}
+
+
+
+{% block body %}
+
+<main class="content" role="main">
+    <article class="post">
+
+        <header class="post-header">
+            <h1 class="post-title">{{ blog.title }}</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="{{blog.add_time|date:'b d, Y'}}">{{blog.publishTime|date:"b d, Y"}}</time>
+            </section>
+        </header>
+
+        <section class="post-content">
+           {{blog.content}}
+        </section>
+
+    </article>
+
+
+</main>
+{% endblock %}

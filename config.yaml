@@ -1,3 +1,6 @@
+name: blog
+version: 3
+
 libraries:
 - name: "django"
   version: "1.4"
