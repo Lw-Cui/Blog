@@ -17,3 +17,4 @@ def home(request):
 		greet = 'Good night, lw.'
 	return render_to_response('index.html', 
 		{'blogs': article.objects.all(), 'greet': greet})
+
