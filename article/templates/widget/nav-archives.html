@@ -1,0 +1,12 @@
+<div class="nav">
+    <h3 class="nav-title">Archives</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+    {% for blog in blogs%}
+        <li class="nav-home nav-current" role="presentation"><a href="{{ blog.geturl }}">{{ blog.title }}</a></li>
+    {%endfor%}
+    </ul>
+</div>
+<span class="nav-cover"></span>

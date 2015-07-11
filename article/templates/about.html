@@ -1,0 +1,26 @@
+{% extends "fullpage.html" %}
+{% block title %}About{% endblock %}
+{% block head %}
+	{% load staticfiles %}
+	<header class="main-header post-head" style="background-image: url({% static 'img/home.JPG' %})">
+	{%include "widget/navigation.html"%}
+	</header>
+{% endblock %}
+{% block body %}
+
+<main class="content" role="main">
+    <article class="post page">
+
+        <header class="post-header">
+            <h1 class="post-title">About</h1>
+        </header>
+
+        <section class="post-content">
+            <p>Hello! My name is Cui liwei, a computer science major student from UESTC at present,
+            and a brilliant software engineer in the future:). </p>
+        </section>
+    </article>
+</main>
+{% endblock %}
+    
+ 

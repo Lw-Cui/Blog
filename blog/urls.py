@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from article.views import home
+from article.views import home, about
 from django.contrib import admin
 import settings
 
@@ -21,4 +21,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^blog/', include('article.urls')),
     url(r'^$', home),
+    url(r'^about$', about),
+    url(r'^static/(?P<path>.*)$', 'django.views.static.serve',{'document_root': settings.STATIC_ROOT }), 
 )

@@ -1,10 +1,11 @@
-{% extends "base.html" %}
+{% extends "fullpage.html" %}
 {% block description %}Lw Cui, @UESTC, China. A computer secience student.{%endblock%}
 {% block title %}Hello Lw{% endblock %}
 {% load staticfiles %}
 
 {% block head %}
 <header class="main-header" style="background-image: url({% static 'img/home.JPG' %})">
+   {%include "widget/navigation.html"%}
 
     <div class="vertical">
         <div class="main-header-content inner">
@@ -28,7 +29,7 @@
             <h2 class="post-title"><a href="{{blog.geturl}}">{{blog.title}}</a></h2>
         </header>
         <section class="post-excerpt">
-            <p><a class="read-more" href="{{blog.geturl}}">{{blog.snippet}} &raquo;</a></p>
+            <p><a class="read-more" href="{{blog.geturl}}">{{ blog.content|truncatewords:50 }} &raquo;</a></p>
         </section>
         <footer class="post-meta">
             {{blog.author.username}}

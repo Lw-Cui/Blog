@@ -20,4 +20,7 @@ def home(request):
 
 def content(request, blogID):
     return render_to_response('content.html', 
-    	{'blog': article.objects.get(id=blogID)})
+    	{'blog': article.objects.get(id=blogID), 'blogs': article.objects.all()})
+
+def about(request):
+	return render_to_response('about.html', {'blogs': article.objects.all()})

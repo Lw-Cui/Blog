@@ -18,20 +18,5 @@
     {% block assert %} {% endblock %}
 
 </head>
-<body class="{{body_class|default:'home-template' }} nav-closed">
-
-    <div class="site-wrapper">
-
-          {% block head %}{% endblock %}
-          {% block body %}{% endblock %}
-          
-    </div>
-
-    {% block foot %} {% endblock %}
-
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/jquery.fitvids.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
-
-</body>
+    {% block page %}{% endblock %}
 </html>

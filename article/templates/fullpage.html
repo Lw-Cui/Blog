@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block page %}
+<body class="{{body_class|default:'home-template' }} nav-closed">
+{%include "widget/nav-archives.html"%}
+
+
+    <div class="site-wrapper">
+
+          {% block head %}{% endblock %}
+          {% block body %}{% endblock %}
+          
+    </div>
+
+    {% block foot %} {% endblock %}
+
+    
+	{% load staticfiles %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.fitvids.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+
+{% endblock %}

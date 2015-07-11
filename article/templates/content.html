@@ -1,5 +1,5 @@
-{% extends "base.html" %}
-{% block description %}{{ blog.snippet }}{%endblock%}
+{% extends "fullpage.html" %}
+{% block description %}{{ blog.content|truncatewords:50 }}{%endblock%}
 {% block title %}{{blog.title}}{% endblock %}
 {% load staticfiles %}
 
@@ -9,6 +9,7 @@
 
 {% block head %}
 <header class="main-header post-head" style="background-image: url({% static 'img/home.JPG' %})">
+   {%include "widget/navigation.html"%}
 </header>
 {% endblock %}
 
@@ -27,7 +28,7 @@
         </header>
 
         <section class="post-content">
-           {{blog.content  }}
+           {{ blog.content }}
            {% include "comment.html" %}
         </section>
 

@@ -8,8 +8,13 @@ from django.shortcuts import render_to_response
 class article(models.Model):
 	title = models.CharField(max_length = 150,)
 	content = models.TextField(blank = True)
-	snippet = models.CharField(max_length = 50, blank = True)
 	publishTime = models.DateTimeField(auto_now = True)
 
 	def geturl(self):
 		return reverse('article.views.content', args=(self.id,))
+
+	def __unicode__(self):
+		return self.title
+
+	class Meta:
+		ordering = ['-publishTime']
