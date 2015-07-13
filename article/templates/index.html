@@ -28,7 +28,7 @@
         </header>
         <section class="post-excerpt">
             {% load markup %}
-            <p><a class="read-more" href="{{blog.geturl}}">{{ blog.content|truncatewords:50|markdown:"safe" }} &raquo;</a></p>
+            <p><a class="read-more" href="{{blog.geturl}}">{{ blog.content|truncatewords:50|markdown}} &raquo;</a></p>
         </section>
         <footer class="post-meta">
             <time class="post-date" datetime='{{blog.add_time|date:"b d, Y"}}'>{{blog.publishTime|date:"b d, Y"}}</time>

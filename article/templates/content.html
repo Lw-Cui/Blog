@@ -29,7 +29,7 @@
 
         <section class="post-content">
             {% load markup %}
-           {{ blog.content|markdown:"safe" }}
+           {{ blog.content|markdown}}
            {% include "comment.html" %}
         </section>
 
