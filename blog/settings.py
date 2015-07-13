@@ -144,7 +144,6 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'article',
-    'django.contrib.markup',
 )
 
 # A sample logging configuration. The only tangible logging
