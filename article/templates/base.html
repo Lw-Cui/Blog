@@ -18,5 +18,25 @@
     {% block assert %} {% endblock %}
 
 </head>
-    {% block page %}{% endblock %}
+
+<body class="{{body_class|default:'home-template' }} nav-closed">
+{%include "widget/nav-archives.html"%}
+
+    <div class="site-wrapper">
+          {% block head %}{% endblock %}
+          {% block body %}{% endblock %}
+    </div>
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="/about">About lw</a></section>
+        <section class="poweredby">Proudly published with <a href="">Django</a></section>
+    </footer>
+
+    {% block foot %} {% endblock %}
+
+    {% load staticfiles %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.fitvids.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+
 </html>

@@ -1,4 +1,4 @@
-{% extends "fullpage.html" %}
+{% extends "base.html" %}
 {% block description %}Lw Cui, @UESTC, China. A computer secience student.{%endblock%}
 {% block title %}Hello Lw{% endblock %}
 {% load staticfiles %}
@@ -47,7 +47,7 @@
         <a class="older-posts" href="/blog/page/{{ blogs.next_page_number }}">Older Posts →</a>
         {% endif %}
     </nav>
-    
+
 </main>
 
 {% endblock %}
