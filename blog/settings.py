@@ -1,6 +1,7 @@
 # Django settings for blog project.
 import os
 
+PAGE_NUM = 5
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),

@@ -1,22 +1,25 @@
-from django.shortcuts import render
 from django.shortcuts import render_to_response
+from django.core.paginator import Paginator
 import datetime
 from .models import *
+from blog import settings
 
 # Create your views here.
 
-def home(request):
+def home(request, page_num=1):
+
 	now = datetime.datetime.now()
 	if now.hour <= 7:
-		greet = 'Good dawn, lw.'
+		greet = 'Why not sleep more?'
 	elif now.hour <= 12:
-		greet = 'Good morning, lw.'
+		greet = 'A beautiful morning!'
 	elif now.hour <= 18:
-		greet = 'Good afernoon, lw.'
+		greet = 'Enjoy your afernoon.'
 	else:
-		greet = 'Good night, lw.'
-	return render_to_response('index.html', 
-		{'blogs': article.objects.all(), 'greet': greet})
+		greet = 'Have a good dream, lw.'
+
+	paginator = Paginator(article.objects.all(), settings.PAGE_NUM)
+	return render_to_response('index.html', {'blogs': paginator.page(page_num), 'greet': greet})
 
 def content(request, blogID):
     return render_to_response('content.html', 
