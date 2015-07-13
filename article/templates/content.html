@@ -28,7 +28,8 @@
         </header>
 
         <section class="post-content">
-           {{ blog.content }}
+            {% load markup %}
+           {{ blog.content|markdown:"safe" }}
            {% include "comment.html" %}
         </section>
 

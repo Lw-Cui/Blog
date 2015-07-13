@@ -9,16 +9,14 @@
 
     <div class="vertical">
         <div class="main-header-content inner">
-            <h1 class="page-title">{{ greet }}</h1>
+            <h1 class="page-title">{{greet}}</h1>
 
-            <h2 class="page-description">please Stay hungry, stay foolish.</h2>
+            <h2 class="page-description">Stay hungry, stay foolish.</h2>
         </div>
     </div>
     <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
 </header>
 {% endblock %}
-
-
 
 {% block body %}
 <main id="content" class="content" role="main">
@@ -29,7 +27,8 @@
             <h2 class="post-title"><a href="{{blog.geturl}}">{{blog.title}}</a></h2>
         </header>
         <section class="post-excerpt">
-            <p><a class="read-more" href="{{blog.geturl}}">{{ blog.content|truncatewords:50 }} &raquo;</a></p>
+            {% load markup %}
+            <p><a class="read-more" href="{{blog.geturl}}">{{ blog.content|truncatewords:50|markdown:"safe" }} &raquo;</a></p>
         </section>
         <footer class="post-meta">
             <time class="post-date" datetime='{{blog.add_time|date:"b d, Y"}}'>{{blog.publishTime|date:"b d, Y"}}</time>
