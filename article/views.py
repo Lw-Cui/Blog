@@ -31,4 +31,14 @@ def content(request, blogID):
 	return render_to_response('content.html', {'blog': post, 'blogs': article.objects.all()})
 
 def about(request):
-	return render_to_response('about.html', {'blogs': article.objects.all()})
+	content = ['#####Hello, welcome to my blog!\n',
+	'My name is *Cui LiWei*.',
+	'I\'m an <del>excellent</del> **computer science major student**@[UESTC](http://www.uestc.edu.cn/)  at present, ',
+	'and a <del>brilliant</del> **software engineer** in the future:).\n\n',
+	'contact ME: [lw@gitHub](https://github.com/Lw-Cui) || <A href="mailto:cui@hellolw.com">cui@hellolw.com</A>\n\n',
+	'#####`printf("Enjoy it");`#####']
+	profile = ''
+	for str in content:
+	 	profile += str
+	profile = markdown2.markdown(profile)
+	return render_to_response('about.html', {'blogs': article.objects.all(), 'profile': profile})
