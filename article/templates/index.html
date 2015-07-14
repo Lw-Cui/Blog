@@ -10,7 +10,6 @@
     <div class="vertical">
         <div class="main-header-content inner">
             <h1 class="page-title">{{greet}}</h1>
-
             <h2 class="page-description">Stay hungry, stay foolish.</h2>
         </div>
     </div>
@@ -30,6 +29,10 @@
             <p><a class="read-more" href="{{blog.geturl}}">{{ blog.content|truncatewords:50|safe }} &raquo;</a></p>
         </section>
         <footer class="post-meta">
+        tags:
+          {% for tag in blog.tags.all %}
+            {{ tag }}
+          {% endfor %}
             <time class="post-date" datetime='{{blog.add_time|date:"b d, Y"}}'>{{blog.publishTime|date:"b d, Y"}}</time>
         </footer>
     </article>
