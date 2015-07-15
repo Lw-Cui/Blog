@@ -9,36 +9,23 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-if 'SERVER_SOFTWARE' in os.environ:
-    DEBUG = False
-    MYSQL_HOST = 'w.rdc.sae.sina.com.cn'
-    MYSQL_PORT = '3307'
-    MYSQL_USER = '02234woj2m'
-    MYSQL_PASS = 'iiyjy1iklmjz0l2k41xwmymzw20z54kh3i3mmjmh'
-    MYSQL_DB   = 'app_hellolw'
+DEBUG = False
+MYSQL_HOST = ''
+MYSQL_PORT = ''
+MYSQL_USER = 'projector'
+MYSQL_PASS = '123'
+MYSQL_DB   = 'project'
 
-    DATABASES = {
-        'default': {
-            'ENGINE':   'django.db.backends.mysql',
-            'NAME':     MYSQL_DB,
-            'USER':     MYSQL_USER,
-            'PASSWORD': MYSQL_PASS,
-            'HOST':     MYSQL_HOST,
-            'PORT':     MYSQL_PORT,
-        }
+DATABASES = {
+    'default': {
+        'ENGINE':   'django.db.backends.mysql',
+        'NAME':     MYSQL_DB,
+        'USER':     MYSQL_USER,
+        'PASSWORD': MYSQL_PASS,
+        'HOST':     MYSQL_HOST,
+        'PORT':     MYSQL_PORT,
     }
-else:
-    DEBUG = True
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-            'NAME': 'mydb',                      # Or path to database file if using sqlite3.
-            'USER': '',                      # Not used with sqlite3.
-            'PASSWORD': '',                  # Not used with sqlite3.
-            'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-            'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-        }
-    }
+}
 
 TEMPLATE_DEBUG = DEBUG
 # Local time zone for this installation. Choices can be found here:
