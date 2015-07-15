@@ -10,8 +10,14 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DEBUG = False
-MYSQL_HOST = 'w.rdc.sae.sina.com.cn'
-MYSQL_PORT = '3307'
+
+if 'SERVER_SOFTWARE' in os.environ:
+    MYSQL_HOST = 'w.rdc.sae.sina.com.cn'
+    MYSQL_PORT = '3307'
+else:
+    MYSQL_HOST = ''
+    MYSQL_PORT = ''
+
 MYSQL_USER = '02234woj2m'
 MYSQL_PASS = 'iiyjy1iklmjz0l2k41xwmymzw20z54kh3i3mmjmh'
 MYSQL_DB   = 'app_hellolw'

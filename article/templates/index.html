@@ -31,7 +31,7 @@
         <footer class="post-meta">
         tags:
           {% for tag in blog.tags.all %}
-            {{ tag }}
+              <a href="{{tag.geturl}}">{{tag}}</a></h2>
           {% endfor %}
             <time class="post-date" datetime='{{blog.add_time|date:"b d, Y"}}'>{{blog.publishTime|date:"b d, Y"}}</time>
         </footer>
