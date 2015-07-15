@@ -10,11 +10,11 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DEBUG = False
-MYSQL_HOST = ''
-MYSQL_PORT = ''
-MYSQL_USER = 'projector'
-MYSQL_PASS = '123'
-MYSQL_DB   = 'project'
+MYSQL_HOST = 'w.rdc.sae.sina.com.cn'
+MYSQL_PORT = '3307'
+MYSQL_USER = '02234woj2m'
+MYSQL_PASS = 'iiyjy1iklmjz0l2k41xwmymzw20z54kh3i3mmjmh'
+MYSQL_DB   = 'app_hellolw'
 
 DATABASES = {
     'default': {
