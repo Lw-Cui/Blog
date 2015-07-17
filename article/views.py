@@ -23,7 +23,7 @@ def home(request, page_num = 1,):
 	elif now.hour <= 12:
 		greet = 'A beautiful morning!'
 	elif now.hour <= 18:
-		greet = 'Enjoy your afernoon.'
+		greet = 'Enjoy your afternoon.'
 	else:
 		greet = 'Have a good dream, lw.'
 
