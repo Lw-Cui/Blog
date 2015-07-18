@@ -1,6 +1,5 @@
 from django.db import models
 from django.core.urlresolvers import reverse
-from django.shortcuts import redirect
 from django.shortcuts import render_to_response
 
 class tag(models.Model):
@@ -10,7 +9,7 @@ class tag(models.Model):
 		return unicode(self.title)
 
 	def geturl(self):
-		return reverse('article.views.tagIndex', args = (self.id, 1))
+		return reverse('article.views.tagArchives', args = (self.id, 1))
 
 class article(models.Model):
 	title = models.CharField(max_length = 150, unique = True)

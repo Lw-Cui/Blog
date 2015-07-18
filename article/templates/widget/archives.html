@@ -1,0 +1,31 @@
+<main id="content" class="content" role="main">
+    {% for blog in blogs %}
+        <article class="post">
+            <header class="post-header">
+                <h2 class="post-title"><a href="{{blog.geturl}}">{{blog.title}}</a></h2>
+            </header>
+            <section class="post-excerpt">
+                <p><a class="read-more" href="{{blog.geturl}}">{{ blog.content|slice:'150'|safe }}&raquo;</a></p>
+            </section>
+            <footer class="post-meta">
+                tags:
+                {% for tag in blog.tags.all %}
+                    <a href="{{tag.geturl}}">{{tag}}</a></h2>
+                {% endfor %}
+                <time class="post-date" datetime='{{blog.add_time|date:"b d, Y"}}'>{{ blog.publishTime|date:"b d, Y" }}</time>
+            </footer>
+        </article>
+    {% endfor %}
+
+    <nav class="pagination" role="navigation">
+        <span class="page-number">Page {{blogs.number}} of {{blogs.paginator.num_pages}}</span>
+        {% if blogs.has_previous %}
+            <a class="newer-posts" href="/blog/page/{{blogs.previous_page_number}}">← Newer Posts</a>
+        {% endif %}
+        {% if blogs.has_next %}
+            <a class="older-posts" href="/blog/page/{{ blogs.next_page_number }}">Older Posts →</a>
+        {% endif %}
+    </nav>
+
+</main>
+

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block description %}A small blog.{%endblock%}
+{% block title %}Home{% endblock %}
+{% load staticfiles %}
+
+{% block head %}
+    <header class="main-header" style="background-image: url(/static/img/{{ name }}.JPG)">
+        <div class="vertical">
+            <div class="main-header-content inner">
+                <h1 class="page-title">{{greet}}</h1>
+                <h2 class="page-description">Stay hungry, stay foolish.</h2>
+            </div>
+        </div>
+        <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
+    </header>
+{% endblock %}
+
+{% block body %}
+    {% include "widget/archives.html" %}
+{% endblock %}

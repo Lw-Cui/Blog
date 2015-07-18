@@ -11,12 +11,12 @@
     <meta name="description" content="{% block description %}{% endblock %}" />
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
      {% load staticfiles %}
     <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+
     <link rel="stylesheet" type="text/css" href="{% static 'css/screen.css' %}" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
-
-    {% block assert %} {% endblock %}
 
 </head>
 
@@ -24,8 +24,9 @@
 {%include "widget/nav-archives.html"%}
 
     <div class="site-wrapper">
-          {% block head %}{% endblock %}
-          {% block body %}{% endblock %}
+        {% block head %}{% endblock %}
+        {% block body %}{% endblock %}
+        {%include "widget/navigation.html"%}
     </div>
 
     <footer class="site-footer clearfix">

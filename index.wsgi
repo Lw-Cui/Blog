@@ -1,12 +1,10 @@
-import sae
-import sys 
-import os 
-from blog import wsgi
+import sys
+import os
 
 app_root = os.path.dirname(__file__) 
-sys.path.insert(0, os.path.join(app_root, 'blog')) 
 sys.path.insert(0, os.path.join(app_root, 'site-packages'))
 
-os.environ['DJANGO_SETTINGS_MODULE'] = 'blog.settings' 
+import sae
+from blog import wsgi
 
 application = sae.create_wsgi_app(wsgi.application)

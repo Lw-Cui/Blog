@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Tag: {{ tag.title }}{% endblock %}
+{% load staticfiles %}
+
+{% block head %}
+    <header class="main-header post-head" style="background-image: url(/static/img/{{ name }}.JPG)">
+        <div class="vertical">
+            <div class="main-header-content inner">
+                <h1 class="page-title">{{ tag.title }}</h1>
+                <h2 class="page-description">Tag</h2>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block body %}
+    {% include "widget/archives.html" %}
+{% endblock %}
