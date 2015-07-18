@@ -9,12 +9,13 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DEBUG = False
 
 if 'SERVER_SOFTWARE' in os.environ:
+    DEBUG = False
     MYSQL_HOST = 'w.rdc.sae.sina.com.cn'
     MYSQL_PORT = '3307'
 else:
+    DEBUG = True
     MYSQL_HOST = ''
     MYSQL_PORT = ''
 
@@ -73,7 +74,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = '/static/'
+STATIC_ROOT = ''
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
