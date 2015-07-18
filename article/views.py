@@ -5,6 +5,7 @@ from models import *
 from blog import settings
 from markdown import markdown2
 import datetime
+import re
 
 def render_post(post):
 	post.content = markdown2.markdown(post.content)
@@ -27,11 +28,11 @@ def temp_proc(request):
         'name': present(),
     }
 
-def tagArchives(request, tagId, page_num = 1):
-    post_list = list(map(render_post, article.objects.filter(tags__id = tagId)))
+def tagArchives(request, tagTitle, page_num = 1):
+    post_list = list(map(render_post, article.objects.filter(tags__title = tagTitle)))
     paginator = Paginator(post_list, settings.PAGE_NUM)
     dict = {'blogs': paginator.page(page_num),
-            'tag': tag.objects.get(id = tagId)}
+            'tag': tag.objects.get(title = tagTitle)}
     return render_to_response('tagArchives.html', dict,
                               context_instance = RequestContext(request, processors=[temp_proc]))
 
@@ -52,8 +53,9 @@ def home(request, page_num = 1):
     return render_to_response('home.html', dict,
                               context_instance = RequestContext(request, processors=[temp_proc]))
 
-def content(request, blogID):
-    post = article.objects.get(pk=blogID)
+def content(request, blogTitle):
+    blogTitle = re.sub(r'_', r' ', blogTitle)
+    post = article.objects.get(title=blogTitle)
     post.content = markdown2.markdown(post.content)
     dict = {'blog': post,}
     return render_to_response('content.html', dict,
