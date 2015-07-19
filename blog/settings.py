@@ -14,25 +14,36 @@ if 'SERVER_SOFTWARE' in os.environ:
     DEBUG = False
     MYSQL_HOST = 'w.rdc.sae.sina.com.cn'
     MYSQL_PORT = '3307'
+    MYSQL_USER = '02234woj2m'
+    MYSQL_PASS = 'iiyjy1iklmjz0l2k41xwmymzw20z54kh3i3mmjmh'
+    MYSQL_DB   = 'app_hellolw'
+
+    DATABASES = {
+        'default': {
+            'ENGINE':   'django.db.backends.mysql',
+            'NAME':     MYSQL_DB,
+            'USER':     MYSQL_USER,
+            'PASSWORD': MYSQL_PASS,
+            'HOST':     MYSQL_HOST,
+            'PORT':     MYSQL_PORT,
+        }
+    }
 else:
     DEBUG = True
     MYSQL_HOST = ''
     MYSQL_PORT = ''
 
-MYSQL_USER = '02234woj2m'
-MYSQL_PASS = 'iiyjy1iklmjz0l2k41xwmymzw20z54kh3i3mmjmh'
-MYSQL_DB   = 'app_hellolw'
-
-DATABASES = {
-    'default': {
-        'ENGINE':   'django.db.backends.mysql',
-        'NAME':     MYSQL_DB,
-        'USER':     MYSQL_USER,
-        'PASSWORD': MYSQL_PASS,
-        'HOST':     MYSQL_HOST,
-        'PORT':     MYSQL_PORT,
+    DATABASES = {
+        'default': {
+            'ENGINE':   'django.db.backends.sqlite3',
+            'NAME':     'db.sqlite3',
+            'USER':     '',
+            'PASSWORD': '',
+            'HOST':     '',
+            'PORT':     '',
+        }
     }
-}
+
 
 TEMPLATE_DEBUG = DEBUG
 # Local time zone for this installation. Choices can be found here:
@@ -134,7 +145,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'django.contrib.markup',
     'article',
 )
 
