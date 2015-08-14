@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>
+        {% block title %}{% endblock %}
+    </title>
+
+    <meta name="description" content="{% block description %}{% endblock %}" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+     {% load staticfiles %}
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/screen.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}" />
+
+</head>
+
+<body class="{{body_class|default:'home-template' }} nav-closed">
+{%include "widget/nav-archives.html"%}
+
+    <div class="site-wrapper">
+        {% block head %}{% endblock %}
+        {% block body %}{% endblock %}
+        {%include "widget/navigation.html"%}
+    </div>
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="/about">About lw</a></section>
+        <section class="poweredby">powered by <a href="">Django</a></section>
+    </footer>
+
+    {% block foot %} {% endblock %}
+
+    {% load staticfiles %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/jquery.fitvids.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+
+</html>

@@ -1,0 +1,44 @@
+<main id="content" class="content" role="main">
+    {% for blog in blogs %}
+        <article class="post">
+            <header class="post-header">
+                <h2 class="post-title"><a href="{% url content blog.id %}">{{ blog.title }}</a></h2>
+            </header>
+            <section class="post-excerpt">
+                <p>
+                    <a class="read-more" href="{% url content blog_id=blog.id %}">
+                        <div id="post{{ blog.id }}">
+                            {{ blog.content|safe }}
+                        </div>
+                    </a>
+                </p>
+                {% load staticfiles %}
+                <script src="{% static 'js/cutter.js' %}"></script>
+                <script>
+                    var post = document.getElementById("post{{ blog.id }}");
+                    Cutter.run(post, post, 15, {more: ''}, {more: ''});
+                </script>
+            </section>
+            <footer class="post-meta">
+                tags:
+                {% for tag in blog.tags.all %}
+                    <a href="{% url tag_archives tag_id=tag.id page_num=1 %}">{{ tag }}</a>
+                {% endfor %}
+                <time class="post-date"
+                      datetime='{{ blog.add_time|date:"b d, Y" }}'>{{ blog.publish_time|date:"b d, Y" }}</time>
+            </footer>
+        </article>
+    {% endfor %}
+
+    <nav class="pagination" role="navigation">
+        <span class="page-number">Page {{ blogs.number }} of {{ blogs.paginator.num_pages }}</span>
+        {% if blogs.has_previous %}
+            <a class="newer-posts" href="/blog/page/{{ blogs.previous_page_number }}">← Newer Posts</a>
+        {% endif %}
+        {% if blogs.has_next %}
+            <a class="older-posts" href="/blog/page/{{ blogs.next_page_number }}">Older Posts →</a>
+        {% endif %}
+    </nav>
+
+</main>
+

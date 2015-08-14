@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}About{% endblock %}
+{% load staticfiles %}
+
+{% block head %}
+    <header class="main-header post-head" style="background-image: url(/static/img/{{ name }}.JPG)">
+        <div class="vertical">
+            <div class="main-header-content inner">
+                <h1 class="page-title">Welcome</h1>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block body %}
+    <main class="content" role="main">
+        <article class="post page">
+
+            <header class="post-header">
+                <h1 class="post-title">About</h1>
+            </header>
+
+            <section class="post-content">
+                <h5>Hello, welcome to my blog!</h5>
+
+                <p> My name is <em>Cui LiWei</em>
+                    .I'm an <del>excellent</del>
+                    <strong>computer science major student</strong>
+                    @<a href="http://www.uestc.edu.cn/">UESTC</a>
+                    at present, and a <del>brilliant</del>
+                    <strong>software engineer</strong>
+                    in the future:).
+                </p>
+
+                <p> contact ME:
+                    <a href="https://github.com/Lw-Cui">lw@gitHub</a>
+                    || <A href="mailto:cui@hellolw.com">cui@hellolw.com</A>
+                </p>
+
+                <h5><code>printf("Enjoy it");</code></h5>
+
+            </section>
+        </article>
+    </main>
+{% endblock %}
+    
+

@@ -1,0 +1,12 @@
+<div class="nav">
+    <h3 class="nav-title">Tags</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+    {% for tag in tags %}
+        <li class="nav-home nav-current" role="presentation"><a href="{% url tag_archives tag_id=tag.id page_num=1 %}">{{ tag.title }}</a></li>
+    {%endfor%}
+    </ul>
+</div>
+<span class="nav-cover"></span>
