@@ -45,7 +45,7 @@ def home(request, page_num=1):
     else:
         greet = 'Have a good dream, lw.'
 
-    post_list = list(Article.objects.all())
+    post_list = list(Article.objects.all().order_by('publish_time').reverse())
     for article in post_list:
         article.content = markdown.markdown(article.content)
     paginator = Paginator(post_list, settings.PAGE_NUM)

@@ -1,5 +1,5 @@
 from django.conf.urls import url, patterns
-from articles import views
+from article import views
 
 
 urlpatterns = patterns(
