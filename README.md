@@ -11,21 +11,15 @@
 * 域名邮箱(cui@hellolw.com)
 
 ##截图##
-* 首页
 
 ![profile](./screenShoot/profile.png) 
 
-* 文章
 
 ![article](./screenShoot/article.png) 
 
-* 标签
 
 ![tag](./screenShoot/tag.png)
 
-* 标签列表
-
-![archives](./screenShoot/archives.png)  
 
 
 ##如何配置？##

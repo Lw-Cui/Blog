@@ -1,8 +1,5 @@
 from django.contrib import admin
-from django_markdown.widgets import AdminMarkdownWidget
 from models import Tag, Article
-from django_markdown.models import MarkdownField
-from django_markdown.admin import MarkdownModelAdmin
 
 
 class ArticleAdmin(admin.ModelAdmin):
@@ -17,6 +14,5 @@ class ArticleAdmin(admin.ModelAdmin):
     filter_horizontal = ('tags',)
 
 
-#admin.site.register(Article, MarkdownModelAdmin)
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Tag)
