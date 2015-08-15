@@ -3,7 +3,7 @@ from django.shortcuts import render_to_response
 from django.core.paginator import Paginator
 from models import Tag, Article
 from newBlog import settings
-import markdown
+import markdown2
 import datetime
 
 
@@ -27,7 +27,7 @@ def process_dict(dict):
 
 def content(request, blog_id):
     post = Article.objects.get(id=blog_id)
-    post.content = markdown.markdown(post.content)
+    post.content = markdown2.markdown(post.content)
     dict = {
         'blog': post,
     }
@@ -47,7 +47,7 @@ def home(request, page_num=1):
 
     post_list = list(Article.objects.all().order_by('publish_time').reverse())
     for article in post_list:
-        article.content = markdown.markdown(article.content)
+        article.content = markdown2.markdown(article.content)
     paginator = Paginator(post_list, settings.PAGE_NUM)
     dict = {
         'blogs': paginator.page(page_num),
@@ -59,6 +59,8 @@ def home(request, page_num=1):
 def tag_archives(request, tag_id, page_num):
     post_list = list(Article.objects.filter(tags__id=tag_id))
     paginator = Paginator(post_list, settings.PAGE_NUM)
+    for article in post_list:
+        article.content = markdown2.markdown(article.content)
     dict = {
         'blogs': paginator.page(page_num),
         'tag': Tag.objects.get(id=tag_id)

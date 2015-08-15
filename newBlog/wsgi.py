@@ -14,12 +14,16 @@ framework.
 
 """
 import os
+import sys
+from os.path import dirname, abspath
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "newBlog.settings")
-
+PROJECT_DIR = dirname(dirname(abspath(__file__)))
+sys.path.insert(0, PROJECT_DIR)
 # This application object is used by any WSGI server configured to use this
 # file. This includes Django's development server, if the WSGI_APPLICATION
 # setting points here.
+os.environ["DJANGO_SETTINGS_MODULE"] = 'newBlog.settings'
+
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
 
