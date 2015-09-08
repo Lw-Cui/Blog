@@ -31,12 +31,12 @@
 ```
 import os
 import sys
-from os.path import dirname, abspath
 
-PROJECT_DIR = dirname(dirname(abspath(__file__)))
+# add this
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, PROJECT_DIR)
-os.environ["DJANGO_SETTINGS_MODULE"] = 'newBlog.settings'
 
+os.environ["DJANGO_SETTINGS_MODULE"] = 'newBlog.settings'
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
 ```
@@ -45,14 +45,9 @@ application = get_wsgi_application()
 3. 在其中加入以下内容（`/home/lw/newBlog/`也需要随机应变.端口为80就不需要在`/etc/apache2/ports.conf`中加入`Listen 80`，这是默认的~）：
 ```
 <VirtualHost *:80>
-
-    ServerName newblog.com
+	# using site address to distinguish root dictionary with same IP and port
+    ServerName www.hellolw.com
     DocumentRoot /home/lw/newBlog/
-
-    Alias /static/ /home/lw/newBlog/static/
-    <Directory /home/lw/newBlog/static>
-	Require all granted
-    </Directory>
 
     <Directory /home/lw/newBlog>
 	Require all granted
@@ -60,7 +55,6 @@ application = get_wsgi_application()
 
     WSGIScriptAlias / /home/lw/newBlog/newBlog/wsgi.py
  </VirtualHost>
-
 ```
 4. 使网站生效：`a2ensite newBlog.conf`
 5. 重启`apache2`： `/etc/init.d/apache2 restart`
