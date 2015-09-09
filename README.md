@@ -55,6 +55,20 @@ application = get_wsgi_application()
 
     WSGIScriptAlias / /home/lw/newBlog/newBlog/wsgi.py
  </VirtualHost>
+
+<VirtualHost *:80>
+	# using site address to distinguish root dictionary with same IP and port
+    ServerName list.xyz
+    DocumentRoot /home/lw/file/
+
+    <Directory /home/lw/file>
+	#uncomment to enable file server
+ 	#Options Indexes FollowSymLinks
+	Require all granted
+    </Directory>
+
+    WSGIScriptAlias / /home/lw/newBlog/newBlog/wsgi.py
+ </VirtualHost>
 ```
 4. 使网站生效：`a2ensite newBlog.conf`
 5. 重启`apache2`： `/etc/init.d/apache2 restart`
